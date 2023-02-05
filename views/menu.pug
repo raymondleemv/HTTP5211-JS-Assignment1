@@ -1,0 +1,20 @@
+extends layout 
+
+block main-content 
+  div.menu-content
+    h1.page-title #{title}
+    div.doughnut-cards-container
+      each doughnut in menu
+        .doughnut-card 
+          //- Cookies & Cream
+          //- https://cdn.shopify.com/s/files/1/0615/8218/0548/products/SideView039.jpg?v=1650649702&width=493
+          //- Caramel
+          //- https://cdn.shopify.com/s/files/1/0615/8218/0548/products/SideView036.jpg?v=1650651194&width=165
+          //- Apple Fritter
+          //- https://cdn.shopify.com/s/files/1/0615/8218/0548/products/DSC08562.jpg?v=1652663774&width=165
+          //- original
+          //- https://cdn.shopify.com/s/files/1/0615/8218/0548/products/SideView001.jpg?v=1650651564&width=165
+          //- Chocolate Glazing
+          //- https://www.epicurious.com/recipes/food/views/chocolate-glaze-51157030
+          img.doughnut-card__image(alt="This is a picture of the doughnut" + doughnut.name src="images/" + doughnut.src)
+          p #{doughnut.name} - $#{doughnut.price}CAD

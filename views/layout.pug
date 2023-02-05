@@ -1,0 +1,27 @@
+block variables 
+doctype html 
+html 
+  head
+    meta(charset="utf-8")
+    title #{title}
+    block scripts 
+      link(rel="stylesheet", type="text/css", href="styles/styles.css")
+  body
+    header#header 
+      .header-content   
+        h2.site-name
+          a(href="/").site-name__link Yummy Doughnuts
+      nav#main-navigation
+        button.hamburger-menu
+          span.hamburger-menu__stripes.hamburger-menu__stripe1
+          span.hamburger-menu__stripes.hamburger-menu__stripe2
+          span.hamburger-menu__stripes.hamburger-menu__stripe3
+        ul 
+          each link in nav 
+            li 
+              a(href=link.path) #{link.name}
+    main#main 
+      block main-content 
+    footer#footer 
+      p.copyright &copy; Copyright HTTP5211, 2023.
+    script(src="js/assignment1.js") 

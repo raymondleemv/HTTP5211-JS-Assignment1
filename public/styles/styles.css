@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&family=Cinzel&family=Playfair+Display&display=swap');
+
+/* General Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --header-size: 48px;
+  --color-palette-50: #F0F4F8;
+  --color-palette-100: #D9E2EC;
+  --color-palette-200: #BCCCDC;
+  --color-palette-300: #9FB3C8;
+  --color-palette-400: #829AB1;
+  --color-palette-500: #627D98;
+  --color-palette-600: #486581;
+  --color-palette-700: #334E68;
+  --color-palette-800: #243B53;
+  --color-palette-900: #102A43;
+}
+
+body {
+  font-family: 'Asap', 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: var(--color-palette-800);
+  color: var(--color-palette-50);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cinzel";
+}
+
+a {
+  color: var(--color-palette-50);
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.stack-item {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+/* header styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-palette-800);
+}
+
+.site-name {
+  font-size: inherit;
+}
+
+.hamburger-menu {
+  --size: 24px;
+  --stripe-thickness: 3px;
+  width: var(--size);
+  height: var(--size);
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.hamburger-menu__stripes {
+  width: var(--size);
+  height: var(--stripe-thickness);
+  background-color: var(--color-palette-50);
+  transition: 0.2s;
+}
+
+.hamburger-menu.expanded .hamburger-menu__stripes {
+  position: absolute;
+}
+
+.hamburger-menu.expanded .hamburger-menu__stripes:nth-child(1) {
+  transform: rotate(135deg);
+}
+
+.hamburger-menu.expanded .hamburger-menu__stripes:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.expanded .hamburger-menu__stripes:nth-child(3) {
+  transform: rotate(-135deg);
+}
+
+nav ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  background-color: var(--color-palette-800);
+  padding: 0.5em;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li:not(:first-child) {
+  margin-top: 0.5em;
+}
+
+.expanded + ul {
+  display: block;
+}
+
+/* home page - main */
+.hero {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hero__image {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+}
+
+.hero__text {
+  width: 90%;
+}
+
+.hero__text > * {
+  font-family: Playfair Display;
+  text-align: center;
+}
+
+.doughnut-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.doughnut-card {
+  min-width: 250px;
+  max-width: 400px;
+  flex: 1 1 0;
+}
+
+.doughnut-card__image, .about-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.about-content, .menu-content {
+  padding: 0.5em;
+}
+
+/* footer */
+.copyright {
+  padding: 0.5em;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    font-size: 28px;
+  }
+
+  nav ul {
+    font-size: 20px;
+  }
+
+  .hamburger-menu {
+    --size: 28px;
+    row-gap: 5px;
+  }
+
+  .hero-text {
+    font-size: 32px;
+  }
+
+  .about-content, .menu-content {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    font-size: 36px;
+  }
+
+  nav ul {
+    font-size: 28px;
+  }
+
+  .hamburger-menu {
+    --size: 36px;
+    row-gap: 7px;
+  }
+
+  .hero-text {
+    font-size: 48px;
+  }
+
+  .doughnut-cards-container{
+    gap: 16px;
+  }
+
+  .doughnut-card {
+    min-width: 368px;
+    max-width: 520px;
+  }
+
+  .about-content, .menu-content {
+    font-size: 28px;
+  }
+
+  .copyright {
+    font-size: 20px;
+  }
+}
